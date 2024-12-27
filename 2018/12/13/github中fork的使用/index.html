@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b56ba8d269d68c9771c1c3df166dc839"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>github中fork的使用 | 我是文盲我怕谁K</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git,Github">
+    <meta name="description" content="在Github上如果看到有很不错的项目和作品，一般我们可以进行三种操作：那就是watch，star和fork">
+<meta name="keywords" content="git,Github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="github中fork的使用">
+<meta property="og:url" content="https://shankun.top/2018/12/13/github中fork的使用/index.html">
+<meta property="og:site_name" content="我是文盲我怕谁K">
+<meta property="og:description" content="在Github上如果看到有很不错的项目和作品，一般我们可以进行三种操作：那就是watch，star和fork">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork1.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork2.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork3.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork4.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork5.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork6.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork7.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork8.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork9.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork10.png">
+<meta property="og:updated_time" content="2024-03-25T06:02:15.155Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="github中fork的使用">
+<meta name="twitter:description" content="在Github上如果看到有很不错的项目和作品，一般我们可以进行三种操作：那就是watch，star和fork">
+<meta name="twitter:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="我是文盲我怕谁K" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background:url(/img/brand.jpg) center center no-repeat;background-size: cover;">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xu Shan Kun</h5>
+          <a href="mailto:xushankun@163.com" title="xushankun@163.com" class="mail">xushankun@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xushankun" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                社交
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">github中fork的使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">github中fork的使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-13T02:01:00.000Z" itemprop="datePublished" class="page-time">
+  2018-12-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工具/">工具</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一步：fork后-直接是以下界面【github的操作】"><span class="post-toc-number">1.</span> <span class="post-toc-text">第一步：fork后 直接是以下界面【github的操作】</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二步：直接-clone-代码到本地进行修改并提交【git操作】"><span class="post-toc-number">2.</span> <span class="post-toc-text">第二步：直接 clone 代码到本地进行修改并提交【git操作】</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三步：pull-request"><span class="post-toc-number">3.</span> <span class="post-toc-text">第三步：pull request</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#New-pull-request"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">New pull request</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#点击Create-pull-request-【新建关于提交代码的-issues-进行讨论】"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">点击Create pull request   【新建关于提交代码的  issues 进行讨论】</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#添加描述并确认创建"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">添加描述并确认创建</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第四步：结果等待确认是否通过"><span class="post-toc-number">4.</span> <span class="post-toc-text">第四步：结果等待确认是否通过</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除自己的一个-repository【仓库】"><span class="post-toc-number">5.</span> <span class="post-toc-text">删除自己的一个 repository【仓库】</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#找到项目settings选项"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">找到项目settings选项</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#右下角-delete-this-repository"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">右下角  delete this repository</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#输入仓库名称，点击同意"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">输入仓库名称，点击同意</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#输入github密码-进行最后确认删除"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">输入github密码  进行最后确认删除</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-github中fork的使用"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">github中fork的使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-13 10:01:00" datetime="2018-12-13T02:01:00.000Z"  itemprop="datePublished">2018-12-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工具/">工具</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>在Github上如果看到有很不错的项目和作品，一般我们可以进行三种操作：那就是<strong>watch</strong>，<strong>star</strong>和<strong>fork</strong><br><a id="more"></a></p>
+<ul>
+<li>watch就是关注repo的动态</li>
+<li>star则类似社交网站的点赞，收藏，like等</li>
+<li>fork就是讲别人的项目拷贝一份给自己，new一个新的分支（Branch）出来，你push的改进和补充则又由原作者选择是否接受。【更改别人项目的bug 或者 优化别人的项目的常用操作】</li>
+</ul>
+<p>如下图所示：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork1.png" alt="github-fork1" title>
+                </div>
+                <div class="image-caption">github-fork1</div>
+            </figure>
+<h3 id="第一步：fork后-直接是以下界面【github的操作】"><a href="#第一步：fork后-直接是以下界面【github的操作】" class="headerlink" title="第一步：fork后 直接是以下界面【github的操作】"></a>第一步：fork后 直接是以下界面【github的操作】</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork2.png" alt="github-fork2" title>
+                </div>
+                <div class="image-caption">github-fork2</div>
+            </figure>
+<h3 id="第二步：直接-clone-代码到本地进行修改并提交【git操作】"><a href="#第二步：直接-clone-代码到本地进行修改并提交【git操作】" class="headerlink" title="第二步：直接 clone 代码到本地进行修改并提交【git操作】"></a>第二步：直接 clone 代码到本地进行修改并提交【git操作】</h3><p>这里正常修改代码提交【就不多废话了】详见：    <strong><a href="https://shankun.top/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4.html">git基本使用命令</a></strong></p>
+<h3 id="第三步：pull-request"><a href="#第三步：pull-request" class="headerlink" title="第三步：pull request"></a>第三步：pull request</h3><h4 id="New-pull-request"><a href="#New-pull-request" class="headerlink" title="New pull request"></a>New pull request</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork3.png" alt="github-fork3" title>
+                </div>
+                <div class="image-caption">github-fork3</div>
+            </figure>
+<h4 id="点击Create-pull-request-【新建关于提交代码的-issues-进行讨论】"><a href="#点击Create-pull-request-【新建关于提交代码的-issues-进行讨论】" class="headerlink" title="点击Create pull request   【新建关于提交代码的  issues 进行讨论】"></a>点击Create pull request   【新建关于提交代码的  issues 进行讨论】</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork4.png" alt="github-fork4" title>
+                </div>
+                <div class="image-caption">github-fork4</div>
+            </figure>
+<h4 id="添加描述并确认创建"><a href="#添加描述并确认创建" class="headerlink" title="添加描述并确认创建"></a>添加描述并确认创建</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork5.png" alt="github-fork5" title>
+                </div>
+                <div class="image-caption">github-fork5</div>
+            </figure>
+<h3 id="第四步：结果等待确认是否通过"><a href="#第四步：结果等待确认是否通过" class="headerlink" title="第四步：结果等待确认是否通过"></a>第四步：结果等待确认是否通过</h3><p>如果出现merge pull request按钮，表示可以和上游仓库同步。之后点下方的merge pull request进行合并，并确认。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork6.png" alt="github-fork6" title>
+                </div>
+                <div class="image-caption">github-fork6</div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork7.png" alt="github-fork7" title>
+                </div>
+                <div class="image-caption">github-fork7</div>
+            </figure>
+<h3 id="删除自己的一个-repository【仓库】"><a href="#删除自己的一个-repository【仓库】" class="headerlink" title="删除自己的一个 repository【仓库】"></a>删除自己的一个 repository【仓库】</h3><p>这里包含自己建的仓库与fork【复制别人的项目到自己】的仓库</p>
+<h4 id="找到项目settings选项"><a href="#找到项目settings选项" class="headerlink" title="找到项目settings选项"></a>找到项目settings选项</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork8.png" alt="github-fork8" title>
+                </div>
+                <div class="image-caption">github-fork8</div>
+            </figure>
+<h4 id="右下角-delete-this-repository"><a href="#右下角-delete-this-repository" class="headerlink" title="右下角  delete this repository"></a>右下角  delete this repository</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork9.png" alt="github-fork9" title>
+                </div>
+                <div class="image-caption">github-fork9</div>
+            </figure>
+<h4 id="输入仓库名称，点击同意"><a href="#输入仓库名称，点击同意" class="headerlink" title="输入仓库名称，点击同意"></a>输入仓库名称，点击同意</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/github-fork/github-fork10.png" alt="github-fork10" title>
+                </div>
+                <div class="image-caption">github-fork10</div>
+            </figure>
+<h4 id="输入github密码-进行最后确认删除"><a href="#输入github密码-进行最后确认删除" class="headerlink" title="输入github密码  进行最后确认删除"></a>输入github密码  进行最后确认删除</h4>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-03-25T06:02:15.155Z" itemprop="dateUpdated">2024-03-25 14:02:15</time>
+</span><br>
+
+
+        
+        如果您有什么想法或者好的建议，可以在下方留言
+        
+    </div>
+    
+    <footer>
+        <a href="https://shankun.top">
+            <img src="/img/avatar.jpg" alt="Xu Shan Kun">
+            Xu Shan Kun
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Github/">Github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://shankun.top/2018/12/13/github中fork的使用/&title=《github中fork的使用》 — 我是文盲我怕谁K&pic=https://shankun.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shankun.top/2018/12/13/github中fork的使用/&title=《github中fork的使用》 — 我是文盲我怕谁K&source=在Github上如果看到有很不错的项目和作品，一般我们可以进行三种操作：那就是watch，star和fork" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://shankun.top/2018/12/13/github中fork的使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《github中fork的使用》 — 我是文盲我怕谁K&url=https://shankun.top/2018/12/13/github中fork的使用/&via=https://shankun.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://shankun.top/2018/12/13/github中fork的使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/25/关于-touchmove-prevent/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">关于@touchmove.prevent</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/06/微信小程序组件【文本部分和全部显示】/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">微信小程序组件【文本部分和全部显示】</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'cc4204f89f12bc22dce4',
+          clientSecret: 'd6878d0c759611658f369d4b6bdae13f36f3e06f',
+          repo: 'xushankun.github.io',
+          owner: 'xushankun',
+          admin: ['xushankun'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+        <p><span>Xu Shan Kun &copy; 2017 - 2024</span>
+            <span>
+                
+                    <a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备18055302号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+<!--    <div class="bottom">-->
+
+<!--    </div>-->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://shankun.top/2018/12/13/github中fork的使用/&title=《github中fork的使用》 — 我是文盲我怕谁K&pic=https://shankun.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shankun.top/2018/12/13/github中fork的使用/&title=《github中fork的使用》 — 我是文盲我怕谁K&source=在Github上如果看到有很不错的项目和作品，一般我们可以进行三种操作：那就是watch，star和fork" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://shankun.top/2018/12/13/github中fork的使用/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《github中fork的使用》 — 我是文盲我怕谁K&url=https://shankun.top/2018/12/13/github中fork的使用/&via=https://shankun.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://shankun.top/2018/12/13/github中fork的使用/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACG0lEQVR42u3aMZKDMAwF0Nz/0mybBviSyM5gP1cZJgE/CkWW9PnE6/havetnn5O7PbYwMDBeyzgu1/W2kkee/ap3/fS5GBgYGzCSxyehM6Fev4I8NGNgYGD0Ertqipm8CAwMDIynAm6ePuaHWAwMDIzqIfb6+0kA7TEePotjYGC8kJFX3f//80/6GxgYGK9iHMVVTfjyVG+0KwwMjKUZz946udvvynYYGBhrM3qDETm1N3JRhWFgYOzASAYg8s31SmmTwQ4MDIxVGc+OWVR5eRvg5u8BAwNjacZko70jbnJkTYLszcwIBgbGoox8E71Cf37QHQ1SYGBgLMfojXblvCRM5+2Em0MsBgbGooxqKtZrZOaYKgADA2M3xqQxkB81ewlotE8MDIxFGb1jap7qVRuTeVDGwMDYmTEZtki2WA3QEQYDA2MzxiTgVrdbTQ2jxgAGBsbSjEnRbX5wrYb+UX8DAwPjVYzrW8xDZ7XonzcYbqqGGBgYizKqV/JmZLU8V20VYGBg7MPojU3kjc8E32wMYGBgbMPIfzwp7jcLavkhFgMDYznGUVxPtQeqaWKh0IaBgbEcoxrmEl4v+cvHNUYhGwMD47WMaom/CqimktXXhIGBsQ+jGign4xeT7Z5+EwMDA6MVcKsvZVK8w8DAwJgndpPyXPR0DAyMDRh5kvdUoT9hF8Y4MDAwlmb08q4JNdniPIhjYGAswfgDqNGdO9we4CgAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 代码块复制功能 -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/clipboard-use.js"></script>
+<script src="/js/toast.js"></script>
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(ฅ>ω<*ฅ) 噫又好了~';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

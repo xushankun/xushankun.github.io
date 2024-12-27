@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b56ba8d269d68c9771c1c3df166dc839"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>centos安装宝塔及https证书 | 我是文盲我怕谁K</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="宝塔,https,nginx">
+    <meta name="description" content="注册宝塔账号并安装宝塔 注册账号地址【后面会用到】 github链接">
+<meta name="keywords" content="宝塔,https,nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos安装宝塔及https证书">
+<meta property="og:url" content="https://shankun.top/2019/07/16/centos安装宝塔及https证书/index.html">
+<meta property="og:site_name" content="我是文盲我怕谁K">
+<meta property="og:description" content="注册宝塔账号并安装宝塔 注册账号地址【后面会用到】 github链接">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota1.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota2.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota3.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota4.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota5.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota6.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota7.png">
+<meta property="og:updated_time" content="2024-03-25T06:02:15.154Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="centos安装宝塔及https证书">
+<meta name="twitter:description" content="注册宝塔账号并安装宝塔 注册账号地址【后面会用到】 github链接">
+<meta name="twitter:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="我是文盲我怕谁K" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background:url(/img/brand.jpg) center center no-repeat;background-size: cover;">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xu Shan Kun</h5>
+          <a href="mailto:xushankun@163.com" title="xushankun@163.com" class="mail">xushankun@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xushankun" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                社交
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">centos安装宝塔及https证书</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">centos安装宝塔及https证书</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-16T01:52:00.000Z" itemprop="datePublished" class="page-time">
+  2019-07-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/服务器/">服务器</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注册宝塔账号并安装宝塔"><span class="post-toc-number">1.</span> <span class="post-toc-text">注册宝塔账号并安装宝塔</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#登录宝塔面板安装nginx"><span class="post-toc-number">2.</span> <span class="post-toc-text">登录宝塔面板安装nginx</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#首页添加网站"><span class="post-toc-number">3.</span> <span class="post-toc-text">首页添加网站</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#申请免费证书【let’s-encrypt】并开启"><span class="post-toc-number">4.</span> <span class="post-toc-text">申请免费证书【let’s encrypt】并开启</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#nginx配置文件修改"><span class="post-toc-number">5.</span> <span class="post-toc-text">nginx配置文件修改</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#重启nginx【结束】"><span class="post-toc-number">6.</span> <span class="post-toc-text">重启nginx【结束】</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-centos安装宝塔及https证书"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">centos安装宝塔及https证书</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-16 09:52:00" datetime="2019-07-16T01:52:00.000Z"  itemprop="datePublished">2019-07-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/服务器/">服务器</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="注册宝塔账号并安装宝塔"><a href="#注册宝塔账号并安装宝塔" class="headerlink" title="注册宝塔账号并安装宝塔"></a>注册宝塔账号并安装宝塔</h4><ul>
+<li><a href="https://www.bt.cn/register.html" target="_blank" rel="noopener">注册账号地址</a>【后面会用到】</li>
+<li><a href="https://github.com/aaPanel/BaoTa" target="_blank" rel="noopener">github链接</a><a id="more"></a>
+centos使用如下命令安装：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
+<p>安装完成后 保存下方账号：【你的ip地址+默认端口号8888】<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota1.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="登录宝塔面板安装nginx"><a href="#登录宝塔面板安装nginx" class="headerlink" title="登录宝塔面板安装nginx"></a>登录宝塔面板安装nginx</h4><p>这里我们使用安装后得到的账号登录，在面板的软件管理安装我们需要的软件到服务器<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="首页添加网站"><a href="#首页添加网站" class="headerlink" title="首页添加网站"></a>首页添加网站</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota3.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="申请免费证书【let’s-encrypt】并开启"><a href="#申请免费证书【let’s-encrypt】并开启" class="headerlink" title="申请免费证书【let’s encrypt】并开启"></a>申请免费证书【let’s encrypt】并开启</h4><p>1.申请证书【这里可能需要登录，使用我们前面注册的账号】<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota4.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>2.切换到其他证书保存【实则是保存文件到服务器】<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota5.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="nginx配置文件修改"><a href="#nginx配置文件修改" class="headerlink" title="nginx配置文件修改"></a>nginx配置文件修改</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  xx.xxx.com;</span><br><span class="line">        rewrite ^ https://$http_host$request_uri? permanent;</span><br><span class="line">        &#125;</span><br><span class="line">server</span><br><span class="line">&#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name xx.xxx.com;</span><br><span class="line">   location / &#123;</span><br><span class="line">       proxy_pass http://localhost:3001/;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota6.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="重启nginx【结束】"><a href="#重启nginx【结束】" class="headerlink" title="重启nginx【结束】"></a>重启nginx【结束】</h4><p>回到首页，打开nginx面板，先后点击重载配置和重启<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/baota/baota7.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-03-25T06:02:15.154Z" itemprop="dateUpdated">2024-03-25 14:02:15</time>
+</span><br>
+
+
+        
+        如果您有什么想法或者好的建议，可以在下方留言
+        
+    </div>
+    
+    <footer>
+        <a href="https://shankun.top">
+            <img src="/img/avatar.jpg" alt="Xu Shan Kun">
+            Xu Shan Kun
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/">https</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/宝塔/">宝塔</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://shankun.top/2019/07/16/centos安装宝塔及https证书/&title=《centos安装宝塔及https证书》 — 我是文盲我怕谁K&pic=https://shankun.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shankun.top/2019/07/16/centos安装宝塔及https证书/&title=《centos安装宝塔及https证书》 — 我是文盲我怕谁K&source=注册宝塔账号并安装宝塔
+注册账号地址【后面会用到】
+github链接" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://shankun.top/2019/07/16/centos安装宝塔及https证书/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《centos安装宝塔及https证书》 — 我是文盲我怕谁K&url=https://shankun.top/2019/07/16/centos安装宝塔及https证书/&via=https://shankun.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://shankun.top/2019/07/16/centos安装宝塔及https证书/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/07/22/vue-axios处理流文件图片/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">vue+axios处理流文件图片</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/12/小程序云开发/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">微信小程序云开发</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'cc4204f89f12bc22dce4',
+          clientSecret: 'd6878d0c759611658f369d4b6bdae13f36f3e06f',
+          repo: 'xushankun.github.io',
+          owner: 'xushankun',
+          admin: ['xushankun'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+        <p><span>Xu Shan Kun &copy; 2017 - 2024</span>
+            <span>
+                
+                    <a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备18055302号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+<!--    <div class="bottom">-->
+
+<!--    </div>-->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://shankun.top/2019/07/16/centos安装宝塔及https证书/&title=《centos安装宝塔及https证书》 — 我是文盲我怕谁K&pic=https://shankun.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shankun.top/2019/07/16/centos安装宝塔及https证书/&title=《centos安装宝塔及https证书》 — 我是文盲我怕谁K&source=注册宝塔账号并安装宝塔
+注册账号地址【后面会用到】
+github链接" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://shankun.top/2019/07/16/centos安装宝塔及https证书/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《centos安装宝塔及https证书》 — 我是文盲我怕谁K&url=https://shankun.top/2019/07/16/centos安装宝塔及https证书/&via=https://shankun.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://shankun.top/2019/07/16/centos安装宝塔及https证书/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3aQW4jMQwEwPz/01lgr1nb3aTkeIHSKZg4M6oJINIkv77i9f13Pbry87ftZ36uR5/5urHw8PDwRlt//pjn15NNJNRH90n28/DpeHh4eNd4yYZObTHf+iYU4eHh4X0Crw0S7d/mJDw8PLz/kZcUC5IkeJNS4+Hh4f0uLylGJJ9vE/R2Xay14OHh4XVPLxpgn/Dzxf4eHh4e3qKrngSJ5yWG/Lf5nYvd4uHh4V3g5WXZvDGWFBcOlBjip+Dh4eHd4CUH8Qyzhz1H1q8DDw8P7xBvtum2hJEf9JvW14uUGg8PD2/N2xcITpHysFQUmvHw8PAu8GZJ8KyR3975WFKOh4eHd5SXj1WdKq1uRqPqNhseHh7eW3izEYE2AJxqjBW1EDw8PLxDvFlSm6S8szb/jbIvHh4e3j3erNG1L0Ds9zCMfnh4eHiHVvLg5ODOr+Rhph0jwMPDw7vBa9tOyU3zF3QjNX84dIWHh4d3lLfPP/ct/81w1cM74OHh4V3g7dtas5CQb3f2D8DDw8N7Dy8vImyubxL3fNwKDw8P7x6vxeRtqijZXY8UvHgpeHh4eBd4s0b+LGnOU+qWWnxjwMPDw1vz8nLqbItJkGiDRxEw8PDw8C7w8gO6fUCScLdXZi8LDw8P7ywvaiCVh3h+9OfjBXlNGg8PD+/9vFPDBHnim49htUNgeHh4eDd4bQsqOo7zcaiyINLWGfDw8PBu8L7L1Tauzm63TtDx8PDwLvDy1RYd8tCyH1NYwfDw8PBGvNmDZ8hiFiwODC8KH3h4eHjXeLM5pba4kA941WNVeHh4eB/JmxUv2hGBnBeFIjw8PLwP5uUjU23Jox1u+EetGg8PD+8Cb7Pp5Mhuhwzyva0GCPDw8PBGvPZLfntMz0LO2eQbDw8P7xDvD6Qr2k8M9sdqAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 代码块复制功能 -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/clipboard-use.js"></script>
+<script src="/js/toast.js"></script>
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(ฅ>ω<*ฅ) 噫又好了~';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

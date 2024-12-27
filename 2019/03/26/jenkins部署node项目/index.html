@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b56ba8d269d68c9771c1c3df166dc839"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>jenkins搭建部署node项目 | 我是文盲我怕谁K</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="jenkins,部署,运维,自动化">
+    <meta name="description" content="目标 centos搭建jenkins 实现github提交代码后自动部署项目">
+<meta name="keywords" content="jenkins,部署,运维,自动化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jenkins搭建部署node项目">
+<meta property="og:url" content="https://shankun.top/2019/03/26/jenkins部署node项目/index.html">
+<meta property="og:site_name" content="我是文盲我怕谁K">
+<meta property="og:description" content="目标 centos搭建jenkins 实现github提交代码后自动部署项目">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins1.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins2.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins3.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins4.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins5.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins6.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins7.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins8.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins9.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins10.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins11.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins12.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins13.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins14.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins15.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins16.png">
+<meta property="og:updated_time" content="2024-03-25T06:02:15.157Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jenkins搭建部署node项目">
+<meta name="twitter:description" content="目标 centos搭建jenkins 实现github提交代码后自动部署项目">
+<meta name="twitter:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="我是文盲我怕谁K" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background:url(/img/brand.jpg) center center no-repeat;background-size: cover;">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xu Shan Kun</h5>
+          <a href="mailto:xushankun@163.com" title="xushankun@163.com" class="mail">xushankun@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xushankun" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                社交
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">jenkins搭建部署node项目</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">jenkins搭建部署node项目</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-26T09:19:00.000Z" itemprop="datePublished" class="page-time">
+  2019-03-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/服务器/">服务器</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#目标"><span class="post-toc-number">1.</span> <span class="post-toc-text">目标</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">git安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tomcat安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">tomcat安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jenkins部署"><span class="post-toc-number">4.</span> <span class="post-toc-text">jenkins部署</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解压安装"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">解压安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#插件安装"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">插件安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全局配置"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">全局配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建任务"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">新建任务</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#源码管理"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">源码管理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#立即构建"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">立即构建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自动构建"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">自动构建</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-jenkins部署node项目"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">jenkins搭建部署node项目</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-26 17:19:00" datetime="2019-03-26T09:19:00.000Z"  itemprop="datePublished">2019-03-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/服务器/">服务器</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ul>
+<li>centos搭建jenkins</li>
+<li>实现github提交代码后自动部署项目<a id="more"></a>
+<h3 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h3></li>
+</ul>
+<ol>
+<li>下载git命令:wget <a href="https://www.kernel.org/pub/software/scm/git/git-2.8.3.tar.gz" target="_blank" rel="noopener">https://www.kernel.org/pub/software/scm/git/git-2.8.3.tar.gz</a>          //选择一个目录后执行，我的是/usr/local/git</li>
+<li>解压git的tar包命令: tar -xzvf git-2.8.3.tar.gz  ，进入解压后的文件夹:cd git-2.8.3</li>
+<li>安装git安装编译所需要的依赖命令:yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker</li>
+<li>安装编译源码所需依赖的时候，yum自动帮你安装了git，这时候你需要先卸载这个旧版的git，命令：yum remove git</li>
+<li>编译git源码命令:make prefix=/usr/local/git all</li>
+<li>安装git至/usr/local/git路径命令：make prefix=/usr/local/git install</li>
+<li>配置git环境变量:vim /etc/profile  #编辑profile文件—-&gt;最下边添加git的路径即可：export PATH=$PATH:/usr/local/git/bin</li>
+<li>让profile文件修改生效命令:source /etc/profile</li>
+<li>检验git是否安装成功命令:git –version 安装成功图如下:<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins1.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ol>
+<h3 id="tomcat安装"><a href="#tomcat安装" class="headerlink" title="tomcat安装"></a>tomcat安装</h3><ol>
+<li><a href="http://tomcat.apache.org/" target="_blank" rel="noopener">官网</a><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>上传服务器<ul>
+<li>使用FTPCute、WinSCP等工具，可以把安装包上传到服务器</li>
+<li>路径是/opt。</li>
+</ul>
+</li>
+<li><p>安装tomcat<br>用Xshell等Linux远程连接工具访问服务器【这里更推荐使用MobaXtrem，拖拽式上传文件】。<br>进入/opt目录，指令是cd /opt。<br>解压安装包，指令是tar -xzvf apache-tomcat-7.0.67.tar.gz。<br>重命名解压后的文件夹，指令是mv apache-tomcat-7.0.67 tomcat。<br>进入内部文件夹，指令是cd /opt/tomcat/bin。<br>尝试启动tomcat，【启动命令】sh startup.sh，如果报错Cannot find ./catalina.sh.The file is absent or does not have execute permission.This file is needed to run this program，则表示权限不足。<br>开启权限，指令是chmod 777 *.sh，然后再次启动tomcat，如果这时候没有报错，那就表示正在启动了。<br>输入tailf /opt/tomcat/logs/catalina.out，可以查看到tomcat的运行信息，如果看到INFO: Server startup in 1925 ms，则表示tomcat已经启动成功了，按ctrl+c退出该日志。<br>【停止命令】sh shutdown.sh 停止tomcat的运行，继续进行后续操作。</p>
+</li>
+<li><p>修改tomcat默认端口【亦可不修改】<br>tomcat默认的端口是8080，也就是说我们在浏览器访问的时候，需要在域名或IP后面加上:8080，              这样不太方便，但是这个可以修改。<br>打开tomcat配置文件，指令是vi /opt/tomcat/conf/server.xml。<br>打开之后按i或者a进入编辑模式。<br>找到8080，改为80。<br>然后按Esc键，然后按:wq，保存并退出（那个:是需要同时按着shift键才能出来的）。<br>启动tomcat【进入bin目录  sh startup.sh】。<br>开放防火墙80端口。<br>开放：firewall-cmd –zone=public –add-port=80/tcp –permanent<br>重载：firewall-cmd –reload</p>
+</li>
+</ol>
+<ol start="5">
+<li>tomcat配置<br>编码有问题，在Tomcat–&gt;conf–&gt;server.xml文件中修改即可：<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins3.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>访问<br>在浏览器输入该服务器的域名或者IP，可以看到默认页面。【我这里是使用的默认端口8080】<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins4.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ol>
+<h3 id="jenkins部署"><a href="#jenkins部署" class="headerlink" title="jenkins部署"></a>jenkins部署</h3><p>jenkins的war包下载地址：<a href="https://jenkins.io/doc/book/installing/" target="_blank" rel="noopener">https://jenkins.io/doc/book/installing/</a>    找到WAR file</p>
+<h4 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h4><p>将jenkins.war包放到Tomcat中webapps并解压，启动Tomcat，成功启动之后访问ip和端口和jenkins如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins5.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>查看密码命令:vim +图片上显示的红色地址，进入下一个界面让我们安装插件，可以选择左边的，是推荐插件，右边是自己选择(这个没什么必要)安装过程有点慢，只需要等待即可。安装完后自己看提示输入管理员信息。重启tomcat，在网页上输入jenkins地址，登录后的界面如下:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins6.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h4><ul>
+<li>插件安装【工作台-系统管理-插件管理】<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins7.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+在可选插件中安装Deploy to container Plugin(这个是支持将代码部署到tomcat容器的)，选择后直接安装就可以，在安装界面下方勾选安装后重启，如下图：<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins8.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+<li>同样的方式安装：GitHub plugin   和   NodeJS Plugin</li>
+</ul>
+<h4 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h4><ul>
+<li>全局工具配置【工作台-系统管理-全局工具配置】</li>
+<li>git配置<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins9.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+这里注意下git位置，这是可执行文件的地址，不是我们前面安装git的地址，是git/bin下的可执行文件 git的目录，如果不知道可以执行命令:#whereis git,找到路径带bin的git地址就是上面要填的。</li>
+<li><p>node配置<br> <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins10.png" alt></p>
+</li>
+<li><p>系统设置【工作台-系统管理-系统设置】</p>
+<p>在系统管理里面的系统设置中新增一个环境变量，防止新建任务中的git地址填写报208或108错误，【键：GIT_SSL_NO_VERIFY】如下图:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins11.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+<li><p>添加凭据【工作台-凭据】 ，即全局git  key的配置</p>
+</li>
+</ul>
+<p>第一步：服务器cmd    ssh -keygen  生成公钥与私钥<br>点击  工作台-凭据-系统-全局凭据【私钥添加】<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins12.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>github公钥添加【github-setting里添加，怎么添加去百度吧，一大堆】</p>
+<h4 id="新建任务"><a href="#新建任务" class="headerlink" title="新建任务"></a>新建任务</h4><p>【任务配置】选择一个自由放个的软件项目-确定<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins13.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="源码管理"><a href="#源码管理" class="headerlink" title="源码管理"></a>源码管理</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins14.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins15.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="立即构建"><a href="#立即构建" class="headerlink" title="立即构建"></a>立即构建</h4><p>【进入项目xxx】可以通过控制台查看构建日志<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/jenkins/jenkins16.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h4 id="自动构建"><a href="#自动构建" class="headerlink" title="自动构建"></a>自动构建</h4><p>jenkins 配置github 实现提交代码自动触发jenkins job【webhook触发】</p>
+<ol>
+<li><a href="https://blog.csdn.net/DevOps008/article/details/81773736" target="_blank" rel="noopener">方法</a></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-03-25T06:02:15.157Z" itemprop="dateUpdated">2024-03-25 14:02:15</time>
+</span><br>
+
+
+        
+        如果您有什么想法或者好的建议，可以在下方留言
+        
+    </div>
+    
+    <footer>
+        <a href="https://shankun.top">
+            <img src="/img/avatar.jpg" alt="Xu Shan Kun">
+            Xu Shan Kun
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/">jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自动化/">自动化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/运维/">运维</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/部署/">部署</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://shankun.top/2019/03/26/jenkins部署node项目/&title=《jenkins搭建部署node项目》 — 我是文盲我怕谁K&pic=https://shankun.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shankun.top/2019/03/26/jenkins部署node项目/&title=《jenkins搭建部署node项目》 — 我是文盲我怕谁K&source=目标
+centos搭建jenkins
+实现github提交代码后自动部署项目" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://shankun.top/2019/03/26/jenkins部署node项目/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jenkins搭建部署node项目》 — 我是文盲我怕谁K&url=https://shankun.top/2019/03/26/jenkins部署node项目/&via=https://shankun.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://shankun.top/2019/03/26/jenkins部署node项目/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/04/12/小程序云开发/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">微信小程序云开发</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/07/终端神器Mobaxterm【拖拽式上传】/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">终端神器Mobaxterm【拖拽式上传】</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'cc4204f89f12bc22dce4',
+          clientSecret: 'd6878d0c759611658f369d4b6bdae13f36f3e06f',
+          repo: 'xushankun.github.io',
+          owner: 'xushankun',
+          admin: ['xushankun'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+        <p><span>Xu Shan Kun &copy; 2017 - 2024</span>
+            <span>
+                
+                    <a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备18055302号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+<!--    <div class="bottom">-->
+
+<!--    </div>-->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://shankun.top/2019/03/26/jenkins部署node项目/&title=《jenkins搭建部署node项目》 — 我是文盲我怕谁K&pic=https://shankun.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shankun.top/2019/03/26/jenkins部署node项目/&title=《jenkins搭建部署node项目》 — 我是文盲我怕谁K&source=目标
+centos搭建jenkins
+实现github提交代码后自动部署项目" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://shankun.top/2019/03/26/jenkins部署node项目/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jenkins搭建部署node项目》 — 我是文盲我怕谁K&url=https://shankun.top/2019/03/26/jenkins部署node项目/&via=https://shankun.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://shankun.top/2019/03/26/jenkins部署node项目/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3a226DQAxF0fz/T9PXSBGwjz1UwrN5qlIEXqnkji+fD76Or+v7k+vf8vuvP192yZAh47WM4/Kq3fMb+tlz0s9PqTJkyNiAcZbBrgPqJFz+5OvYZMiQISNlrA1RhgwZMmqPuy5ByXPSYliGDBkyeIHKW2M3BWfpK1tWi8uQIeOFDN51//+fH5lvyJAh41WMI7zIcY3fvywqGTJkjGbw15DWPz8y9hOuDBkydmOQcDtlZ3oPaeTdUGXIkDGIwdMcX+SqfUGttQwZMmRswEiXStMjIy9iSfKVIUPGboxOKLWVr04BfPMWGTJkDGXwdQo+KuBJk2BQFS5DhozRjLTRVlsCIw07nsRv0roMGTLGMWojyXRIuapUPo1KhgwZoxn949oTCZofVeNdDBkyZLyQUXscH1X2h5TBsoUMGTKGMtIXp6S00E2LYfQ3kSFDxjhG7cV8kJCWxGjNQoYMGRsw0ltJ6GTYQJputYUMGTJkzGPUGv1pi6028iQpW4YMGfswePOLpMjnJhinEcqQIWMDRicskpTXDkHR9ypDhoxxjPRQGKTC9vkNHUxlyJAxlNFp5fNhQJot49QsQ4aM0YzaqkQa0NonFA+OMmTIeDkjTbJkRYM37NKxQVyLy5AhYxAjLUoJlTTg0v8Ap3fKkCFDRimITiMvXnWVIUOGjPbwoLa6ERxMZciQsQGDr1x0guusYsiQIWNnRmfE+Cld5DiYDjVlyJAxlPEH3NLk8/xU2oEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 代码块复制功能 -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/clipboard-use.js"></script>
+<script src="/js/toast.js"></script>
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(ฅ>ω<*ฅ) 噫又好了~';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

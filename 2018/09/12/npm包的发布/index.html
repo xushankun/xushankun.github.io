@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b56ba8d269d68c9771c1c3df166dc839"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>npm包的发布 | 我是文盲我怕谁K</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="node,npm">
+    <meta name="description" content="首先去官网注册npm帐号去npm官网注册帐号 然后在本地新建项目文件夹，例如shankuncd shankun npm init      //初始化一个package.json">
+<meta name="keywords" content="node,npm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="npm包的发布">
+<meta property="og:url" content="https://shankun.top/2018/09/12/npm包的发布/index.html">
+<meta property="og:site_name" content="我是文盲我怕谁K">
+<meta property="og:description" content="首先去官网注册npm帐号去npm官网注册帐号 然后在本地新建项目文件夹，例如shankuncd shankun npm init      //初始化一个package.json">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/npmImg/release-npm-1.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/npmImg/release-npm-2.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/npmImg/release-npm-3.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/npmImg/release-npm-4.png">
+<meta property="og:updated_time" content="2024-03-25T06:02:15.158Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="npm包的发布">
+<meta name="twitter:description" content="首先去官网注册npm帐号去npm官网注册帐号 然后在本地新建项目文件夹，例如shankuncd shankun npm init      //初始化一个package.json">
+<meta name="twitter:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/npmImg/release-npm-1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="我是文盲我怕谁K" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background:url(/img/brand.jpg) center center no-repeat;background-size: cover;">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xu Shan Kun</h5>
+          <a href="mailto:xushankun@163.com" title="xushankun@163.com" class="mail">xushankun@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xushankun" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                社交
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">npm包的发布</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">npm包的发布</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-12T05:20:00.000Z" itemprop="datePublished" class="page-time">
+  2018-09-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工具/">工具</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先去官网注册npm帐号"><span class="post-toc-number">1.</span> <span class="post-toc-text">首先去官网注册npm帐号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#然后在本地新建项目文件夹，例如shankun"><span class="post-toc-number">2.</span> <span class="post-toc-text">然后在本地新建项目文件夹，例如shankun</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#当前目录下新建index-js【初始化时指定的入口文件】"><span class="post-toc-number">3.</span> <span class="post-toc-text">当前目录下新建index.js【初始化时指定的入口文件】</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#README-md-项目描述文件【非必选，不过作为一个专业的开发，你懂的】"><span class="post-toc-number">4.</span> <span class="post-toc-text">README.md  项目描述文件【非必选，不过作为一个专业的开发，你懂的】</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备发布"><span class="post-toc-number">5.</span> <span class="post-toc-text">准备发布</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#移除包"><span class="post-toc-number">6.</span> <span class="post-toc-text">移除包</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-npm包的发布"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">npm包的发布</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-12 13:20:00" datetime="2018-09-12T05:20:00.000Z"  itemprop="datePublished">2018-09-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工具/">工具</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="首先去官网注册npm帐号"><a href="#首先去官网注册npm帐号" class="headerlink" title="首先去官网注册npm帐号"></a>首先去官网注册npm帐号</h3><p><a href="https://www.npmjs.com/" target="_blank" rel="noopener">去npm官网注册帐号</a></p>
+<h3 id="然后在本地新建项目文件夹，例如shankun"><a href="#然后在本地新建项目文件夹，例如shankun" class="headerlink" title="然后在本地新建项目文件夹，例如shankun"></a>然后在本地新建项目文件夹，例如shankun</h3><pre><code>cd shankun
+npm init      //初始化一个package.json
+</code></pre><a id="more"></a>
+<ul>
+<li>默认包名称 【一定得是npm库里不存在的，可以去<a href="https://www.npmjs.com" target="_blank" rel="noopener">npm官网</a>查询】</li>
+<li>描述</li>
+<li>版本号</li>
+<li>入口文件(index.js)  默认</li>
+<li>关键词</li>
+<li>作者</li>
+</ul>
+<p>回车    初始化OK 【文件夹shankun下多了一个文件package.json】</p>
+<h3 id="当前目录下新建index-js【初始化时指定的入口文件】"><a href="#当前目录下新建index-js【初始化时指定的入口文件】" class="headerlink" title="当前目录下新建index.js【初始化时指定的入口文件】"></a>当前目录下新建index.js【初始化时指定的入口文件】</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/npmImg/release-npm-1.png" alt="release-npm-1" title>
+                </div>
+                <div class="image-caption">release-npm-1</div>
+            </figure>
+<h3 id="README-md-项目描述文件【非必选，不过作为一个专业的开发，你懂的】"><a href="#README-md-项目描述文件【非必选，不过作为一个专业的开发，你懂的】" class="headerlink" title="README.md  项目描述文件【非必选，不过作为一个专业的开发，你懂的】"></a>README.md  项目描述文件【非必选，不过作为一个专业的开发，你懂的】</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/npmImg/release-npm-2.png" alt="release-npm-2" title>
+                </div>
+                <div class="image-caption">release-npm-2</div>
+            </figure>
+<h3 id="准备发布"><a href="#准备发布" class="headerlink" title="准备发布"></a>准备发布</h3><pre><code>cd shankun
+npm login
+</code></pre><p><img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/npmImg/release-npm-3.png" alt="release-npm-3"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm publish		// 发布成功如下图【每次发布版本号不能重复】</span><br><span class="line">// + 包名@版本号</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/npmImg/release-npm-4.png" alt="release-npm-4"></p>
+<h3 id="移除包"><a href="#移除包" class="headerlink" title="移除包"></a>移除包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm unpublish 	// 同发布</span><br><span class="line">// - 包名@版本号</span><br><span class="line">``` </span><br><span class="line">     </span><br><span class="line">###	接下来 我们  就可以【npm install 包名称】去安装包了</span><br><span class="line">**官网查询结果如下图：**</span><br><span class="line">![release-npm-5](https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/npmImg/release-npm-5.png)</span><br></pre></td></tr></table></figure>
+<p>-g    全局<br>–save    本地安装写进package.json  的  dependencies<br>–save-dev    本地安装写进package.json 的 devDependencies<br><code>`</code></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-03-25T06:02:15.158Z" itemprop="dateUpdated">2024-03-25 14:02:15</time>
+</span><br>
+
+
+        
+        如果您有什么想法或者好的建议，可以在下方留言
+        
+    </div>
+    
+    <footer>
+        <a href="https://shankun.top">
+            <img src="/img/avatar.jpg" alt="Xu Shan Kun">
+            Xu Shan Kun
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://shankun.top/2018/09/12/npm包的发布/&title=《npm包的发布》 — 我是文盲我怕谁K&pic=https://shankun.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shankun.top/2018/09/12/npm包的发布/&title=《npm包的发布》 — 我是文盲我怕谁K&source=首先去官网注册npm帐号去npm官网注册帐号
+然后在本地新建项目文件夹，例如shankuncd shankun
+npm init      //初始化一个..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://shankun.top/2018/09/12/npm包的发布/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《npm包的发布》 — 我是文盲我怕谁K&url=https://shankun.top/2018/09/12/npm包的发布/&via=https://shankun.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://shankun.top/2018/09/12/npm包的发布/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/09/博客论坛/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">博客论坛</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/09/07/JS生成随机字符串【字母数字】/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS生成随机字符串【字母数字】</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'cc4204f89f12bc22dce4',
+          clientSecret: 'd6878d0c759611658f369d4b6bdae13f36f3e06f',
+          repo: 'xushankun.github.io',
+          owner: 'xushankun',
+          admin: ['xushankun'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+        <p><span>Xu Shan Kun &copy; 2017 - 2024</span>
+            <span>
+                
+                    <a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备18055302号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+<!--    <div class="bottom">-->
+
+<!--    </div>-->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://shankun.top/2018/09/12/npm包的发布/&title=《npm包的发布》 — 我是文盲我怕谁K&pic=https://shankun.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shankun.top/2018/09/12/npm包的发布/&title=《npm包的发布》 — 我是文盲我怕谁K&source=首先去官网注册npm帐号去npm官网注册帐号
+然后在本地新建项目文件夹，例如shankuncd shankun
+npm init      //初始化一个..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://shankun.top/2018/09/12/npm包的发布/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《npm包的发布》 — 我是文盲我怕谁K&url=https://shankun.top/2018/09/12/npm包的发布/&via=https://shankun.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://shankun.top/2018/09/12/npm包的发布/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACPUlEQVR42u3aQW7DMAwF0dz/0i7QXeFKmU/GRU2PVkYSyHpaMBLJ1wuP43uQb8/P57GfZ/+b1pAhQ8ZtGcd2kBecP1/BOu99sx0yZMh4AIOEUbKgNDaulsvXJkOGDBnkaJhSeYCWIUOGjBqDLGgfrGskGTJkyCCXyTQ48nk4+AN3cRkyZNyQkRYG/vL5wvqGDBkybsI4wtEpWKZFhWBVMmTIGM3oJ+XT4xq5uBaTejJkyBjKIEVKjiSJM/IJ36Af/xsyZMh4AIMsmgflK9JtyxlkyJAxmsHzV/w3aSo/DbvBYVSGDBkjGLVQ2Amjnasy6haRIUPGOAZPoqWT8uheuxi/yR3KkCFjEKOf1q8VODsH0OVdXIYMGaMZtSIlLzqiOiouLfwyjwwZMkYzyHGNJ/H5t7XiQbyVMmTIGMcgDVu1cLk/AtaKCqjHTYYMGSMYXFlr4eqXNtGzDBkyRjP6JQF+BOxvx4WVDRkyZPx7RudladmAHBz5oRDdxWXIkDGCQYJsmg7rp/h5qk6GDBmzGbxisJ+UzJMeQIMNlSFDxmMYtUDJC5xkI9Lta9UfZMiQcRNGp50rvbKmTRi8WU2GDBmzGUc4OoWEWksHOm7KkCFjNKMW7NKA22/RILPJkCFjNoMHWR4oa0E2TbcFFVEZMmSMYJBLY/9yy499PEUoQ4YMGelya6m3WglBhgwZMmrNYZ0mjLSxQ4YMGU9jpJfYTzWQpeWB5TwyZMgYzag1OnSCZnpM7Fx6ZciQcXPGF3YCrWM3ZZDTAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 代码块复制功能 -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/clipboard-use.js"></script>
+<script src="/js/toast.js"></script>
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(ฅ>ω<*ฅ) 噫又好了~';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

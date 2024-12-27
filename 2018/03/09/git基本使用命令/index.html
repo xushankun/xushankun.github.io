@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?b56ba8d269d68c9771c1c3df166dc839"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>git基本使用命令 | 我是文盲我怕谁K</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git">
+    <meta name="description" content="git四个阶段的撤销更改基本概念三个步骤 工作区→暂存区→本地仓库→远程仓库123git add .git commit -m &amp;quot;content&amp;quot;git push">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git基本使用命令">
+<meta property="og:url" content="https://shankun.top/2018/03/09/git基本使用命令/index.html">
+<meta property="og:site_name" content="我是文盲我怕谁K">
+<meta property="og:description" content="git四个阶段的撤销更改基本概念三个步骤 工作区→暂存区→本地仓库→远程仓库123git add .git commit -m &amp;quot;content&amp;quot;git push">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/gitImg/git-branch1.png">
+<meta property="og:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/gitImg/git-branch2.png">
+<meta property="og:updated_time" content="2024-03-25T06:02:15.156Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git基本使用命令">
+<meta name="twitter:description" content="git四个阶段的撤销更改基本概念三个步骤 工作区→暂存区→本地仓库→远程仓库123git add .git commit -m &amp;quot;content&amp;quot;git push">
+<meta name="twitter:image" content="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/gitImg/git-branch1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="我是文盲我怕谁K" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background:url(/img/brand.jpg) center center no-repeat;background-size: cover;">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Xu Shan Kun</h5>
+          <a href="mailto:xushankun@163.com" title="xushankun@163.com" class="mail">xushankun@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xushankun" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                社交
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git基本使用命令</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git基本使用命令</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-09T02:02:00.000Z" itemprop="datePublished" class="page-time">
+  2018-03-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工具/">工具</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git四个阶段的撤销更改"><span class="post-toc-number">1.</span> <span class="post-toc-text">git四个阶段的撤销更改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三个步骤"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">三个步骤</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#四个区"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">四个区</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#五种状态"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">五种状态</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检查修改"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">检查修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#已修改，未暂存"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">已修改，未暂存</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#已暂存，未提交"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">已暂存，未提交</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#已提交，未推送"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">已提交，未推送</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#撤销修改"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">撤销修改</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#已暂存，本地已提交"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">已暂存，本地已提交</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#已提交，未推送-1"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">已提交，未推送</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#fatal-Authentication-failed-for又不弹出用户名和密码"><span class="post-toc-number">2.</span> <span class="post-toc-text">fatal: Authentication failed for又不弹出用户名和密码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重置"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">重置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加本地项目到git【本地已配置用户名及密码】"><span class="post-toc-number">3.</span> <span class="post-toc-text">添加本地项目到git【本地已配置用户名及密码】</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git回滚到任意版本"><span class="post-toc-number">4.</span> <span class="post-toc-text">git回滚到任意版本</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#先显示提交的log"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">先显示提交的log</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#回滚到指定版本"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">回滚到指定版本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#强制提交"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">强制提交</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-git基本使用命令"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git基本使用命令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-09 10:02:00" datetime="2018-03-09T02:02:00.000Z"  itemprop="datePublished">2018-03-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/工具/">工具</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="git四个阶段的撤销更改"><a href="#git四个阶段的撤销更改" class="headerlink" title="git四个阶段的撤销更改"></a>git四个阶段的撤销更改</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="三个步骤"><a href="#三个步骤" class="headerlink" title="三个步骤"></a>三个步骤</h4><ul>
+<li>工作区→暂存区→本地仓库→远程仓库<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;content&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ol>
+<li><code>git add.</code> 把所有文件放入<code>暂存区</code></li>
+<li><code>git commit</code>把所有文件从<code>暂存区</code>提交进<code>本地仓库</code>；</li>
+<li><code>git push</code>把所有文件从<code>本地仓库</code>推送进<code>远程仓库</code>。</li>
+</ol>
+<h4 id="四个区"><a href="#四个区" class="headerlink" title="四个区"></a>四个区</h4><p>git相比于svn等传统的版本管理工具，多了一个<code>暂存区（state）</code>的概念</p>
+<ul>
+<li>工作区（Working Area）</li>
+<li>暂存区（State）</li>
+<li>本地仓库（Local Repository）</li>
+<li>远程仓库 （Remote Repository）</li>
+</ul>
+<h4 id="五种状态"><a href="#五种状态" class="headerlink" title="五种状态"></a>五种状态</h4><p>进入每一个区都会有一种状态，加上初始状态，刚好5个状态，分别如下：</p>
+<ul>
+<li>未修改（Origin）</li>
+<li>已修改（Modified）</li>
+<li>已暂存（Stated）</li>
+<li>已提交（Commited）</li>
+<li>已推送（Pushed）</li>
+</ul>
+<h3 id="检查修改"><a href="#检查修改" class="headerlink" title="检查修改"></a>检查修改</h3><h4 id="已修改，未暂存"><a href="#已修改，未暂存" class="headerlink" title="已修改，未暂存"></a>已修改，未暂存</h4><p>当我们修改了某个文件，但是还没有<code>git add .</code>之前，我们用<code>git diff</code>命令来检查哪些文件内容被修改了【还未进入<code>暂存区</code>】</p>
+<h4 id="已暂存，未提交"><a href="#已暂存，未提交" class="headerlink" title="已暂存，未提交"></a>已暂存，未提交</h4><p>现在我们把 修改 放入<code>暂存区</code>看看。先执行 <code>git add .</code>，再执行 <code>git diff</code>，会发现没有任何结果。【说明：<code>git diff</code>只检查<code>工作区</code>和<code>暂存区</code>之间的差。如果我们想看到<code>暂存区</code>和<code>本地仓库</code>间的差异，使用<code>git diff cached</code>】</p>
+<h4 id="已提交，未推送"><a href="#已提交，未推送" class="headerlink" title="已提交，未推送"></a>已提交，未推送</h4><p>现在我们把修改从<code>暂存区</code>提交到<code>本地仓库</code>，先执行<code>git commit</code>,再执行<code>git diff --cached</code>，没有差异。执行<code>git diff master origin/master</code>，我们可以看到差异。<code>master</code>是你的<code>本地仓库</code>，而<code>origin/master</code>是你的<code>远程仓库</code>,<code>master</code>是分支的意思，因为我们都在主分支上工作，而<code>origin</code>就代表远程。</p>
+<h4 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h4><p>如果我们只在编辑器里修改了文件，但还没有执行<code>git add .</code>,这时我们的文件还在<code>工作区</code>，并没有进入<code>暂存区</code>。我们可以用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 或 git reset --hard 来进行撤销操作，</span><br></pre></td></tr></table></figure></p>
+<p>修改后<code>git add .</code>前进一步，<code>git checkout</code>后退一步撤销刚才的修改。</p>
+<h4 id="已暂存，本地已提交"><a href="#已暂存，本地已提交" class="headerlink" title="已暂存，本地已提交"></a>已暂存，本地已提交</h4><p>你已经执行了<code>git add .</code>,但还没执行<code>git commit -m &#39;comment&#39;</code>，这时候意识到错误，想要撤销可以执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br><span class="line">git checkout</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></p>
+<h4 id="已提交，未推送-1"><a href="#已提交，未推送-1" class="headerlink" title="已提交，未推送"></a>已提交，未推送</h4><p>执行了<code>git add .</code>，又执行了<code>git commit</code> ,这时候你的代码进入了<code>本地仓库</code>，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure></p>
+<p>已推送的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^	//先恢复本地仓库</span><br><span class="line">git push -f		//强制push到远程仓库</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="fatal-Authentication-failed-for又不弹出用户名和密码"><a href="#fatal-Authentication-failed-for又不弹出用户名和密码" class="headerlink" title="fatal: Authentication failed for又不弹出用户名和密码"></a>fatal: Authentication failed for又不弹出用户名和密码</h2><h3 id="重置"><a href="#重置" class="headerlink" title="重置"></a>重置</h3><p>切换执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --system --unset credential.helper</span><br></pre></td></tr></table></figure></p>
+<p>然后就可以重新提交用户名和密码进行提交了</p>
+<hr>
+<h2 id="添加本地项目到git【本地已配置用户名及密码】"><a href="#添加本地项目到git【本地已配置用户名及密码】" class="headerlink" title="添加本地项目到git【本地已配置用户名及密码】"></a>添加本地项目到git【本地已配置用户名及密码】</h2><p>命令行中执行以下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init   ----------初始化git仓库</span><br><span class="line">git remote add origin 你的项目地址 //注:项目地址形式为:http://git.oschina.net/xxx/xxx.git或者 git@git.oschina.net:xxx/xxx.git     用来连接远程码云</span><br></pre></td></tr></table></figure></p>
+<p>开始第一次上传你的项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .      --将项目中的所有文件上传</span><br><span class="line">git commit -m &apos;对上传文件的注释&apos;</span><br><span class="line">git push origin master    --正式上传至码云中，若上传有问题，可以试试   git push origin master -f 表示舍弃线上的文件，强制推送</span><br></pre></td></tr></table></figure></p>
+<p>推送成功后git pull时【需要进行一次远程分支和本地分支的关联】<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/gitImg/git-branch1.png" alt="git-branch-1.png" title>
+                </div>
+                <div class="image-caption">git-branch-1.png</div>
+            </figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br><span class="line"></span><br><span class="line">git branch --set-upstream-to=remotes/origin/master master</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://shankun-1257055090.cos.ap-chengdu.myqcloud.com/blog/gitImg/git-branch2.png" alt="git-branch-2.png" title>
+                </div>
+                <div class="image-caption">git-branch-2.png</div>
+            </figure>
+<hr>
+<h2 id="git回滚到任意版本"><a href="#git回滚到任意版本" class="headerlink" title="git回滚到任意版本"></a>git回滚到任意版本</h2><h3 id="先显示提交的log"><a href="#先显示提交的log" class="headerlink" title="先显示提交的log"></a>先显示提交的log</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ git log -3</span><br><span class="line">commit 4dc08bb8996a6ee02f</span><br><span class="line">Author: Mark &lt;xxx@xx.com&gt;</span><br><span class="line">Date:   Wed Sep 7 08:08:53 2016 +0800</span><br><span class="line"></span><br><span class="line">    xxxxx</span><br><span class="line"></span><br><span class="line">commit 9cac9ba76574da2167</span><br><span class="line">Author: xxx&lt;xx@qq.com&gt;</span><br><span class="line">Date:   Tue Sep 6 22:18:59 2016 +0800</span><br><span class="line"></span><br><span class="line">    improved the requst</span><br><span class="line"></span><br><span class="line">commit e377f60e28c8b84158</span><br><span class="line">Author: xxx&lt;xxx@qq.com&gt;</span><br><span class="line">Date:   Tue Sep 6 14:42:44 2016 +0800</span><br><span class="line"></span><br><span class="line">    changed the password from empty to max123</span><br></pre></td></tr></table></figure>
+<h3 id="回滚到指定版本"><a href="#回滚到指定版本" class="headerlink" title="回滚到指定版本"></a>回滚到指定版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard e377f60e28c8b84158</span><br></pre></td></tr></table></figure>
+<h3 id="强制提交"><a href="#强制提交" class="headerlink" title="强制提交"></a>强制提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f origin master</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-03-25T06:02:15.156Z" itemprop="dateUpdated">2024-03-25 14:02:15</time>
+</span><br>
+
+
+        
+        如果您有什么想法或者好的建议，可以在下方留言
+        
+    </div>
+    
+    <footer>
+        <a href="https://shankun.top">
+            <img src="/img/avatar.jpg" alt="Xu Shan Kun">
+            Xu Shan Kun
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://shankun.top/2018/03/09/git基本使用命令/&title=《git基本使用命令》 — 我是文盲我怕谁K&pic=https://shankun.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shankun.top/2018/03/09/git基本使用命令/&title=《git基本使用命令》 — 我是文盲我怕谁K&source=git四个阶段的撤销更改基本概念三个步骤
+工作区→暂存区→本地仓库→远程仓库123git add .git commit -m &quot;content..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://shankun.top/2018/03/09/git基本使用命令/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git基本使用命令》 — 我是文盲我怕谁K&url=https://shankun.top/2018/03/09/git基本使用命令/&via=https://shankun.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://shankun.top/2018/03/09/git基本使用命令/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/05/04/bMAP简单使用【百度地图API】/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">bMAP简单使用【百度地图API】</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/03/07/NPM正确使用姿势/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">NPM正确使用姿势</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'cc4204f89f12bc22dce4',
+          clientSecret: 'd6878d0c759611658f369d4b6bdae13f36f3e06f',
+          repo: 'xushankun.github.io',
+          owner: 'xushankun',
+          admin: ['xushankun'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+        <p><span>Xu Shan Kun &copy; 2017 - 2024</span>
+            <span>
+                
+                    <a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备18055302号-1</a><br>
+                
+            </span>
+        </p>
+    </div>
+<!--    <div class="bottom">-->
+
+<!--    </div>-->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://shankun.top/2018/03/09/git基本使用命令/&title=《git基本使用命令》 — 我是文盲我怕谁K&pic=https://shankun.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://shankun.top/2018/03/09/git基本使用命令/&title=《git基本使用命令》 — 我是文盲我怕谁K&source=git四个阶段的撤销更改基本概念三个步骤
+工作区→暂存区→本地仓库→远程仓库123git add .git commit -m &quot;content..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://shankun.top/2018/03/09/git基本使用命令/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git基本使用命令》 — 我是文盲我怕谁K&url=https://shankun.top/2018/03/09/git基本使用命令/&via=https://shankun.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://shankun.top/2018/03/09/git基本使用命令/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aS46DMBAFwNz/0hlpthmc120zEnaxQoQEF4uO+/N6xcf79xhf+bz+eX716dU9iw8MDIzHMt7DY/yAMSZZ9NUa8rVhYGCcw0hCZ/KYamxMfj/5A8DAwMDIz5MQPF4uBgYGxipGL2jO3I+BgYFRDYjJRjAJwdUt44JcHAMD44GMamPgP89v7G9gYGA8hPEuHkkxLr/SC7J/rAoDA2NrxkxRvrdZrI5uFLabGBgYBzDunrbK70mao5cBFwMD4wBGdfCiN1RRDcRRuouBgbE1I1luNbntpcH5czEwMM5hVNPU3p291mOhhYCBgbE1Iy+6JVd6JbzeSEezdoiBgfFwxnzyWU0480DcHMvAwMDYmpGHvLtbmL1wjIGBsSujmrjmRboqIF86BgbGCYxqgjoTFqvpcbJxxMDAOIFRTSlXjYVVE9EFjQEMDIzHMtYOhPVeRE79krhiYGBsyqiGuZntXYKpfhcDA+McRl7w6kW5Vc2DL/dgYGBsyqgmlr0N3x1lOAwMjDMZ1fZkNd1tpqDJa8XAwNiaMQ6d+SjGTKG/d3z5BQwMjI0YvbLX/ABZ8lIKfwYYGBhbM2b6gNVgXW2U3lIKxMDAeCyjGmTH7yBvCcyMXLzymh8GBsZGjGoQnF/WTGvzj29hYGBgBE3K+SCb7FsxMDAwckZ1CKO6lay2SDEwME5gVJsB1VGMVS0EDAyMMxm9xkCvJNdrKqwaL8PAwHgg4wcb02+FcNuT6QAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- 代码块复制功能 -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/clipboard-use.js"></script>
+<script src="/js/toast.js"></script>
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(ฅ>ω<*ฅ) 噫又好了~';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
