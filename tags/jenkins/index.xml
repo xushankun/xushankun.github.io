@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Jenkins on 我是文盲我怕谁K</title>
+    <link>https://shankun.top/tags/jenkins/</link>
+    <description>Recent content in Jenkins on 我是文盲我怕谁K</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 26 Mar 2019 17:19:00 +0800</lastBuildDate>
+    <atom:link href="https://shankun.top/tags/jenkins/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jenkins搭建部署node项目</title>
+      <link>https://shankun.top/2019/03/26/jenkins%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Tue, 26 Mar 2019 17:19:00 +0800</pubDate>
+      <guid>https://shankun.top/2019/03/26/jenkins%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE/</guid>
+      <description>&lt;h3 id=&#34;目标&#34;&gt;目标&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;centos搭建jenkins&lt;/li&gt;
+&lt;li&gt;实现github提交代码后自动部署项目&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

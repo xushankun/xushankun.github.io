@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Axios on 我是文盲我怕谁K</title>
+    <link>https://shankun.top/tags/axios/</link>
+    <description>Recent content in Axios on 我是文盲我怕谁K</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 22 Jul 2019 12:27:00 +0800</lastBuildDate>
+    <atom:link href="https://shankun.top/tags/axios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vue&#43;axios处理流文件图片</title>
+      <link>https://shankun.top/2019/07/22/vue-axios%E5%A4%84%E7%90%86%E6%B5%81%E6%96%87%E4%BB%B6%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Mon, 22 Jul 2019 12:27:00 +0800</pubDate>
+      <guid>https://shankun.top/2019/07/22/vue-axios%E5%A4%84%E7%90%86%E6%B5%81%E6%96%87%E4%BB%B6%E5%9B%BE%E7%89%87/</guid>
+      <description>&lt;h4 id=&#34;说明&#34;&gt;说明&lt;/h4&gt;
+&lt;p&gt;vue axios 后端接口返回一个流文件图片，前端base64解析直接展示&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

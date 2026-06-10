@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Npm on 我是文盲我怕谁K</title>
+    <link>https://shankun.top/tags/npm/</link>
+    <description>Recent content in Npm on 我是文盲我怕谁K</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 12 Sep 2018 13:20:00 +0800</lastBuildDate>
+    <atom:link href="https://shankun.top/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>npm包的发布</title>
+      <link>https://shankun.top/2018/09/12/npm%E5%8C%85%E7%9A%84%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Wed, 12 Sep 2018 13:20:00 +0800</pubDate>
+      <guid>https://shankun.top/2018/09/12/npm%E5%8C%85%E7%9A%84%E5%8F%91%E5%B8%83/</guid>
+      <description>&lt;h3 id=&#34;首先去官网注册npm帐号&#34;&gt;首先去官网注册npm帐号&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.npmjs.com/&#34;&gt;去npm官网注册帐号&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;然后在本地新建项目文件夹例如shankun&#34;&gt;然后在本地新建项目文件夹，例如shankun&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;cd shankun
+npm init  	//初始化一个package.json
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>NPM正确使用姿势</title>
+      <link>https://shankun.top/2018/03/07/npm%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF/</link>
+      <pubDate>Wed, 07 Mar 2018 12:10:00 +0800</pubDate>
+      <guid>https://shankun.top/2018/03/07/npm%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF/</guid>
+      <description>&lt;h3 id=&#34;npmcnpm-安装&#34;&gt;npm、cnpm 安装&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Node.js：&lt;a href=&#34;https://nodejs.org/zh-cn/&#34;&gt;https://nodejs.org/zh-cn/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;淘宝NPM：&lt;a href=&#34;https://npm.taobao.org/&#34;&gt;https://npm.taobao.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;包括更改默认的C盘为其它盘【所有npm全局包的根目录】，以及npm，cnpm环境变量的配置&lt;/li&gt;
+&lt;li&gt;安装教程：&lt;a href=&#34;https://www.cnblogs.com/yominhi/p/7039795.html&#34;&gt;https://www.cnblogs.com/yominhi/p/7039795.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

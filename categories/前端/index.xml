@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>前端 on 我是文盲我怕谁K</title>
+    <link>https://shankun.top/categories/%E5%89%8D%E7%AB%AF/</link>
+    <description>Recent content in 前端 on 我是文盲我怕谁K</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 22 Jul 2019 12:27:00 +0800</lastBuildDate>
+    <atom:link href="https://shankun.top/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>vue&#43;axios处理流文件图片</title>
+      <link>https://shankun.top/2019/07/22/vue-axios%E5%A4%84%E7%90%86%E6%B5%81%E6%96%87%E4%BB%B6%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Mon, 22 Jul 2019 12:27:00 +0800</pubDate>
+      <guid>https://shankun.top/2019/07/22/vue-axios%E5%A4%84%E7%90%86%E6%B5%81%E6%96%87%E4%BB%B6%E5%9B%BE%E7%89%87/</guid>
+      <description>&lt;h4 id=&#34;说明&#34;&gt;说明&lt;/h4&gt;
+&lt;p&gt;vue axios 后端接口返回一个流文件图片，前端base64解析直接展示&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>微信小程序云开发</title>
+      <link>https://shankun.top/2019/04/12/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Fri, 12 Apr 2019 09:35:00 +0800</pubDate>
+      <guid>https://shankun.top/2019/04/12/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%91%E5%BC%80%E5%8F%91/</guid>
+      <description>&lt;h3 id=&#34;初始化项目&#34;&gt;初始化项目&lt;/h3&gt;
+&lt;h4 id=&#34;起步说明非小白教程&#34;&gt;起步说明【非小白教程】&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;适合人群【建议快速看文档，对着写一遍】&lt;/p&gt;&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;看过官方文档，并简单的写过
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.weixin.qq.com/miniprogram/dev/&#34;&gt;起步教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html&#34;&gt;云开发文档&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;熟悉vue/es6&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>微信小程序组件【文本部分和全部显示】</title>
+      <link>https://shankun.top/2018/11/06/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%84%E4%BB%B6%E6%96%87%E6%9C%AC%E9%83%A8%E5%88%86%E5%92%8C%E5%85%A8%E9%83%A8%E6%98%BE%E7%A4%BA/</link>
+      <pubDate>Tue, 06 Nov 2018 16:31:00 +0800</pubDate>
+      <guid>https://shankun.top/2018/11/06/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%84%E4%BB%B6%E6%96%87%E6%9C%AC%E9%83%A8%E5%88%86%E5%92%8C%E5%85%A8%E9%83%A8%E6%98%BE%E7%A4%BA/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;文本部分和全部显示&lt;/strong&gt; 	代码：&lt;a href=&#34;https://github.com/xushankun/displayPartText&#34;&gt;displayPartText&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JS生成随机字符串【字母数字】</title>
+      <link>https://shankun.top/2018/09/07/js%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E6%AF%8D%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Fri, 07 Sep 2018 11:31:00 +0800</pubDate>
+      <guid>https://shankun.top/2018/09/07/js%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E6%AF%8D%E6%95%B0%E5%AD%97/</guid>
+      <description>&lt;h3 id=&#34;说明&#34;&gt;说明&lt;/h3&gt;
+&lt;p&gt;JS生成随机字符串，可指定长度或范围，内容数组自定义&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JS防抖与节流函数</title>
+      <link>https://shankun.top/2018/08/31/js%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 31 Aug 2018 14:56:00 +0800</pubDate>
+      <guid>https://shankun.top/2018/08/31/js%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/</guid>
+      <description>&lt;h2 id=&#34;防抖&#34;&gt;防抖&lt;/h2&gt;
+&lt;p&gt;多次事件触发后，事件处理函数只执行一次，并且是在触发操作结束时执行&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>bMAP简单使用【百度地图API】</title>
+      <link>https://shankun.top/2018/05/04/bmap%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi/</link>
+      <pubDate>Fri, 04 May 2018 16:28:00 +0800</pubDate>
+      <guid>https://shankun.top/2018/05/04/bmap%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi/</guid>
+      <description>&lt;h4 id=&#34;第一步&#34;&gt;第一步&lt;/h4&gt;
+&lt;p&gt;申请百度地图api  key 【需要实名认证】&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;text/javascript&amp;#34;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;http://api.map.baidu.com/api?v=3.0&amp;amp;ak=您的密钥&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

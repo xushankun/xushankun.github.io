@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Javascript on 我是文盲我怕谁K</title>
+    <link>https://shankun.top/tags/javascript/</link>
+    <description>Recent content in Javascript on 我是文盲我怕谁K</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 07 Sep 2018 11:31:00 +0800</lastBuildDate>
+    <atom:link href="https://shankun.top/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JS生成随机字符串【字母数字】</title>
+      <link>https://shankun.top/2018/09/07/js%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E6%AF%8D%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Fri, 07 Sep 2018 11:31:00 +0800</pubDate>
+      <guid>https://shankun.top/2018/09/07/js%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E6%AF%8D%E6%95%B0%E5%AD%97/</guid>
+      <description>&lt;h3 id=&#34;说明&#34;&gt;说明&lt;/h3&gt;
+&lt;p&gt;JS生成随机字符串，可指定长度或范围，内容数组自定义&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JS防抖与节流函数</title>
+      <link>https://shankun.top/2018/08/31/js%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Fri, 31 Aug 2018 14:56:00 +0800</pubDate>
+      <guid>https://shankun.top/2018/08/31/js%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0/</guid>
+      <description>&lt;h2 id=&#34;防抖&#34;&gt;防抖&lt;/h2&gt;
+&lt;p&gt;多次事件触发后，事件处理函数只执行一次，并且是在触发操作结束时执行&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

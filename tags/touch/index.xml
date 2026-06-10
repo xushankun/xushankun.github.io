@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Touch on 我是文盲我怕谁K</title>
+    <link>https://shankun.top/tags/touch/</link>
+    <description>Recent content in Touch on 我是文盲我怕谁K</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 25 Jan 2019 13:44:00 +0800</lastBuildDate>
+    <atom:link href="https://shankun.top/tags/touch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于@touchmove.prevent</title>
+      <link>https://shankun.top/2019/01/25/%E5%85%B3%E4%BA%8E@touchmove.prevent/</link>
+      <pubDate>Fri, 25 Jan 2019 13:44:00 +0800</pubDate>
+      <guid>https://shankun.top/2019/01/25/%E5%85%B3%E4%BA%8E@touchmove.prevent/</guid>
+      <description>&lt;h3 id=&#34;1需求&#34;&gt;1.需求&lt;/h3&gt;
+&lt;p&gt;在出现弹窗时，禁止滑动弹窗后面的主体页面&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

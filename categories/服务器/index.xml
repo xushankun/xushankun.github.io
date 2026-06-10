@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>服务器 on 我是文盲我怕谁K</title>
+    <link>https://shankun.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <description>Recent content in 服务器 on 我是文盲我怕谁K</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 16 Jul 2019 09:52:00 +0800</lastBuildDate>
+    <atom:link href="https://shankun.top/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>centos安装宝塔及https证书</title>
+      <link>https://shankun.top/2019/07/16/centos%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E5%8F%8Ahttps%E8%AF%81%E4%B9%A6/</link>
+      <pubDate>Tue, 16 Jul 2019 09:52:00 +0800</pubDate>
+      <guid>https://shankun.top/2019/07/16/centos%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94%E5%8F%8Ahttps%E8%AF%81%E4%B9%A6/</guid>
+      <description>&lt;h4 id=&#34;注册宝塔账号并安装宝塔&#34;&gt;注册宝塔账号并安装宝塔&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bt.cn/register.html&#34;&gt;注册账号地址&lt;/a&gt;【后面会用到】&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aaPanel/BaoTa&#34;&gt;github链接&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>jenkins搭建部署node项目</title>
+      <link>https://shankun.top/2019/03/26/jenkins%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Tue, 26 Mar 2019 17:19:00 +0800</pubDate>
+      <guid>https://shankun.top/2019/03/26/jenkins%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE/</guid>
+      <description>&lt;h3 id=&#34;目标&#34;&gt;目标&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;centos搭建jenkins&lt;/li&gt;
+&lt;li&gt;实现github提交代码后自动部署项目&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>终端神器Mobaxterm【拖拽式上传】</title>
+      <link>https://shankun.top/2019/03/07/%E7%BB%88%E7%AB%AF%E7%A5%9E%E5%99%A8mobaxterm%E6%8B%96%E6%8B%BD%E5%BC%8F%E4%B8%8A%E4%BC%A0/</link>
+      <pubDate>Thu, 07 Mar 2019 15:45:00 +0800</pubDate>
+      <guid>https://shankun.top/2019/03/07/%E7%BB%88%E7%AB%AF%E7%A5%9E%E5%99%A8mobaxterm%E6%8B%96%E6%8B%BD%E5%BC%8F%E4%B8%8A%E4%BC%A0/</guid>
+      <description>&lt;h3 id=&#34;给大佬递上链接&#34;&gt;给大佬递上链接&lt;/h3&gt;
+&lt;p&gt;┏ (゜ω゜)=☞：&lt;a href=&#34;https://pan.baidu.com/s/1CBzMMWiDZvwL8Lg4Q8RbRw&#34;&gt;百度云&lt;/a&gt;，提取码：ans9&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>nginx 反向代理--解决前端跨域问题</title>
+      <link>https://shankun.top/2018/10/18/nginx-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86--%E8%A7%A3%E5%86%B3%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 18 Oct 2018 15:28:00 +0800</pubDate>
+      <guid>https://shankun.top/2018/10/18/nginx-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86--%E8%A7%A3%E5%86%B3%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h3 id=&#34;跨域&#34;&gt;跨域&lt;/h3&gt;
+&lt;p&gt;浏览器同源策略造成的，所有支持javascript的浏览器都支持这个策略，【这里不多说了】&lt;/p&gt;
+&lt;h3 id=&#34;nginx&#34;&gt;Nginx&lt;/h3&gt;
+&lt;p&gt;Nginx (engine x) 是一个高性能的HTTP和反向代理服务【百度百科】&lt;/p&gt;
+&lt;h3 id=&#34;需求&#34;&gt;需求&lt;/h3&gt;
+&lt;p&gt;当我们调试前端页面的时候，浏览器报出跨域【即接口与本地服务器不在同一个域内】&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>centos 7 安装 node</title>
+      <link>https://shankun.top/2018/09/03/centos-7-%E5%AE%89%E8%A3%85-node/</link>
+      <pubDate>Mon, 03 Sep 2018 14:42:00 +0800</pubDate>
+      <guid>https://shankun.top/2018/09/03/centos-7-%E5%AE%89%E8%A3%85-node/</guid>
+      <description>&lt;h3 id=&#34;友情链接偷懒一波哈哈&#34;&gt;友情链接【偷懒一波，哈哈】&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/jonatha_n/article/details/75271050&#34;&gt;centos7.x安装node&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
